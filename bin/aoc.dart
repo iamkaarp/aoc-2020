@@ -1,6 +1,7 @@
 import 'package:args/args.dart';
 
 // Local Packages
+import 'package:aoc/fileReader.dart';
 import 'package:aoc/day1/tasks.dart' as day1;
 
 void main(List<String> arguments) {
@@ -23,11 +24,12 @@ void runAll() {
 }
 
 void runnerDay1() {
+  List items = fileReader("day1");
   final stopwatch = Stopwatch()..start();
-  print(day1.taskA());
+  print(day1.taskA(items));
   print(stopwatch.elapsed);
   stopwatch.reset();
-  print(day1.taskB());
+  print(day1.taskB(items));
   print(stopwatch.elapsed);
   stopwatch.stop();
 }
