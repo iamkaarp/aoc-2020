@@ -26,16 +26,22 @@ void main(List<String> arguments) {
 }
 
 void runAll() {
+  print('Running Day 1');
   runnerDay1();
+  print('\n');
+  print('Running Day 2');
   runnerDay2();
+  print('\n');
 }
 
 void runnerDay1() {
   List items = fileReader("day1");
   final stopwatch = Stopwatch()..start();
+  print('Task A');
   print(day1.taskA(items));
   print(stopwatch.elapsed);
   stopwatch.reset();
+  print('\nTask B');
   print(day1.taskB(items));
   print(stopwatch.elapsed);
   stopwatch.stop();
@@ -44,9 +50,11 @@ void runnerDay1() {
 void runnerDay2() {
   List items = fileReader("day2");
   final stopwatch = Stopwatch()..start();
-  print(day2.taskA(items));
+  print('Task A');
+  print(day2.taskA(items).toString());
   print(stopwatch.elapsed);
   stopwatch.reset();
+  print('\nTask B');
   print(day2.taskB(items));
   print(stopwatch.elapsed);
   stopwatch.stop();
