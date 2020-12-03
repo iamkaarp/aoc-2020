@@ -1,4 +1,5 @@
 import 'package:args/args.dart';
+import 'package:ansicolor/ansicolor.dart';
 
 // Local Packages
 import 'package:aoc/fileReader.dart';
@@ -13,16 +14,21 @@ void main(List<String> arguments) {
       abbr: 'd', defaultsTo: 'all', callback: (n) => day = "day" + n);
   parser.parse(arguments);
 
+  List items;
+  if (day != "dayall") {
+    items = fileReader("${day}");
+  }
+
   if (day == "day1") {
-    runnerDay1();
+    runnerDay1(items);
   }
 
   if (day == "day2") {
-    runnerDay2();
+    runnerDay2(items);
   }
 
   if (day == "day3") {
-    runnerDay3();
+    runnerDay3(items);
   }
 
   if (day == "dayall") {
@@ -31,52 +37,63 @@ void main(List<String> arguments) {
 }
 
 void runAll() {
-  print('Running Day 1');
-  runnerDay1();
-  print('\n');
-  print('Running Day 2');
-  runnerDay2();
-  print('\n');
-  print('Running Day 3');
-  runnerDay3();
-  print('\n');
-}
-
-void runnerDay1() {
+  AnsiPen black = new AnsiPen()..black(bold: true);
+  AnsiPen yellow = new AnsiPen()..yellow(bold: true);
+  final stopwatch1 = Stopwatch()..start();
   List items = fileReader("day1");
+  print(yellow("Day 1\n"));
+  runnerDay1(items);
+  items = fileReader("day2");
+  print(yellow("Day 2\n"));
+  runnerDay2(items);
+  items = fileReader("day3");
+  print(yellow("Day 3\n"));
+  runnerDay3(items);
+  print(black("Total time:\t${stopwatch1.elapsed}"));
+  stopwatch1.stop();
+}
+
+void runnerDay1(items) {
+  AnsiPen green = new AnsiPen()..green(bold: true);
+  AnsiPen red = new AnsiPen()..red(bold: true);
   final stopwatch = Stopwatch()..start();
-  print('Task A');
-  print(day1.taskA(items));
-  print(stopwatch.elapsed);
+  print(red('Task A'));
+  print('Result:\t' + day1.taskA(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
   stopwatch.reset();
-  print('\nTask B');
-  print(day1.taskB(items));
-  print(stopwatch.elapsed);
+  print(red('\nTask B'));
+  print('Result:\t' + day1.taskB(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
+  print("\n\n");
   stopwatch.stop();
 }
 
-void runnerDay2() {
-  List items = fileReader("day2");
+void runnerDay2(items) {
+  AnsiPen green = new AnsiPen()..green(bold: true);
+  AnsiPen red = new AnsiPen()..red(bold: true);
   final stopwatch = Stopwatch()..start();
-  print('Task A');
-  print(day2.taskA(items).toString());
-  print(stopwatch.elapsed);
+  print(red('Task A'));
+  print('Result:\t' + day2.taskA(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
   stopwatch.reset();
-  print('\nTask B');
-  print(day2.taskB(items));
-  print(stopwatch.elapsed);
+  print(red('\nTask B'));
+  print('Result:\t' + day2.taskB(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
+  print("\n\n");
   stopwatch.stop();
 }
 
-void runnerDay3() {
-  List items = fileReader("day3");
+void runnerDay3(items) {
+  AnsiPen green = new AnsiPen()..green(bold: true);
+  AnsiPen red = new AnsiPen()..red(bold: true);
   final stopwatch = Stopwatch()..start();
-  print('Task A');
-  print(day3.taskA(items).toString());
-  print(stopwatch.elapsed);
+  print(red('Task A'));
+  print('Result:\t' + day3.taskA(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
   stopwatch.reset();
-  print('\nTask B');
-  print(day3.taskB(items));
-  print(stopwatch.elapsed);
+  print(red('\nTask B'));
+  print('Result:\t' + day3.taskB(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
+  print("\n\n");
   stopwatch.stop();
 }
