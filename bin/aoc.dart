@@ -4,6 +4,7 @@ import 'package:args/args.dart';
 import 'package:aoc/fileReader.dart';
 import 'package:aoc/day1/tasks.dart' as day1;
 import 'package:aoc/day2/tasks.dart' as day2;
+import 'package:aoc/day3/tasks.dart' as day3;
 
 void main(List<String> arguments) {
   String day = "";
@@ -20,6 +21,10 @@ void main(List<String> arguments) {
     runnerDay2();
   }
 
+  if (day == "day3") {
+    runnerDay3();
+  }
+
   if (day == "dayall") {
     runAll();
   }
@@ -31,6 +36,9 @@ void runAll() {
   print('\n');
   print('Running Day 2');
   runnerDay2();
+  print('\n');
+  print('Running Day 3');
+  runnerDay3();
   print('\n');
 }
 
@@ -56,6 +64,19 @@ void runnerDay2() {
   stopwatch.reset();
   print('\nTask B');
   print(day2.taskB(items));
+  print(stopwatch.elapsed);
+  stopwatch.stop();
+}
+
+void runnerDay3() {
+  List items = fileReader("day3");
+  final stopwatch = Stopwatch()..start();
+  print('Task A');
+  print(day3.taskA(items).toString());
+  print(stopwatch.elapsed);
+  stopwatch.reset();
+  print('\nTask B');
+  print(day3.taskB(items));
   print(stopwatch.elapsed);
   stopwatch.stop();
 }
