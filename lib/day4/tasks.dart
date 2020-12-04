@@ -85,7 +85,6 @@ bool validator(List attributes) {
     }
 
     if (attribute.contains(new RegExp(r'^pid'))) {
-      print(attribute.substring(4));
       if (attribute.substring(4).length == 9) {
         check++;
       }

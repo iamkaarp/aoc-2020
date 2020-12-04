@@ -14,3 +14,5 @@ dev_dependencies:
   test: ^1.14.4
   args: ^1.6.0
   ansicolor: ^1.1.1
+  flutter_test:
+    sdk: flutter

@@ -53,6 +53,9 @@ void runAll() {
   items = fileReader("day3");
   print(yellow("Day 3\n"));
   runnerDay3(items);
+  items = fileReader("day4");
+  print(yellow("Day 4\n"));
+  runnerDay4(items);
   print(black("Total time:\t${stopwatch1.elapsed}"));
   stopwatch1.stop();
 }

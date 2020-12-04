@@ -1,9 +1,12 @@
 import 'dart:io';
 import 'package:path/path.dart';
 
-List fileReader(String day) {
-  String pathToFile =
-      join(dirname(Platform.script.toFilePath()), '../input/', day);
+List fileReader(String day, [bool test = false]) {
+  String path = "../input/";
+  if (test) {
+    path = "input/";
+  }
+  String pathToFile = join(dirname(Platform.script.toFilePath()), path, day);
 
   var file = new File(pathToFile);
   List rows = file.readAsLinesSync();
