@@ -6,6 +6,7 @@ import 'package:aoc/fileReader.dart';
 import 'package:aoc/day1/tasks.dart' as day1;
 import 'package:aoc/day2/tasks.dart' as day2;
 import 'package:aoc/day3/tasks.dart' as day3;
+import 'package:aoc/day4/tasks.dart' as day4;
 
 void main(List<String> arguments) {
   String day = "";
@@ -29,6 +30,9 @@ void main(List<String> arguments) {
 
   if (day == "day3") {
     runnerDay3(items);
+  }
+  if (day == "day4") {
+    runnerDay4(specialReader("${day}"));
   }
 
   if (day == "dayall") {
@@ -93,6 +97,21 @@ void runnerDay3(items) {
   stopwatch.reset();
   print(red('\nTask B'));
   print('Result:\t' + day3.taskB(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
+  print("\n\n");
+  stopwatch.stop();
+}
+
+void runnerDay4(items) {
+  AnsiPen green = new AnsiPen()..green(bold: true);
+  AnsiPen red = new AnsiPen()..red(bold: true);
+  final stopwatch = Stopwatch()..start();
+  print(red('Task A'));
+  print('Result:\t' + day4.taskA(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
+  stopwatch.reset();
+  print(red('\nTask B'));
+  print('Result:\t' + day4.taskB(items).toString());
   print(green('Time:\t${stopwatch.elapsed}'));
   print("\n\n");
   stopwatch.stop();
