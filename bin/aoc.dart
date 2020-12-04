@@ -32,7 +32,7 @@ void main(List<String> arguments) {
     runnerDay3(items);
   }
   if (day == "day4") {
-    runnerDay4(specialReader("${day}"));
+    runnerDay4(fileReader("${day}"));
   }
 
   if (day == "dayall") {

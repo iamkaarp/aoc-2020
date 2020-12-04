@@ -12,18 +12,19 @@ List fileReader(String day) {
 
 List specialReader(String day) {
   List rows = fileReader(day);
-  List output = [];
+
   String input = "";
   for (String row in rows) {
-    if (row.length > 0) {
+    if (row.contains(":")) {
       input += row + " ";
     }
 
     if (row.length == 0) {
-      output.add(input);
-      input = "";
+      input += "\n";
     }
   }
-  print(output);
-  return output;
+
+  List split = input.split("\n");
+
+  return split;
 }
