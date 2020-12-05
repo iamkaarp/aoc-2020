@@ -1,5 +1,3 @@
-import '../fileReader.dart';
-
 int taskA() {
   return 0;
 }
