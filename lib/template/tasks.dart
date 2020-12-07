@@ -1,7 +1,7 @@
-int taskA() {
+int taskA(List items) {
   return 0;
 }
 
-int taskB() {
+int taskB(List items) {
   return 0;
 }

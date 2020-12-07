@@ -8,7 +8,7 @@ import 'package:aoc/day2/tasks.dart' as day2;
 import 'package:aoc/day3/tasks.dart' as day3;
 import 'package:aoc/day4/tasks.dart' as day4;
 import 'package:aoc/day5/tasks.dart' as day5;
-
+import 'package:aoc/day6/tasks.dart' as day6;
 import 'package:aoc/day7/tasks.dart' as day7;
 
 void main(List<String> arguments) {
@@ -42,6 +42,10 @@ void main(List<String> arguments) {
     runnerDay5(items);
   }
 
+  if (day == "day6") {
+    runnerDay6(items);
+  }
+
   if (day == "day7") {
     runnerDay7(items);
   }
@@ -67,6 +71,15 @@ void runAll() {
   items = fileReader("day4");
   print(yellow("Day 4\n"));
   runnerDay4(items);
+  items = fileReader("day5");
+  print(yellow("Day 5\n"));
+  runnerDay5(items);
+  items = fileReader("day6");
+  print(yellow("Day 6\n"));
+  runnerDay6(items);
+  items = fileReader("day7");
+  print(yellow("Day 7\n"));
+  runnerDay7(items);
   print(black("Total time:\t${stopwatch1.elapsed}"));
   stopwatch1.stop();
 }
@@ -146,6 +159,21 @@ void runnerDay5(items) {
   stopwatch.stop();
 }
 
+void runnerDay6(items) {
+  AnsiPen green = new AnsiPen()..green(bold: true);
+  AnsiPen red = new AnsiPen()..red(bold: true);
+  final stopwatch = Stopwatch()..start();
+  print(red('Task A'));
+  print('Result:\t' + day6.taskA(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
+  stopwatch.reset();
+  print(red('\nTask B'));
+  print('Result:\t' + day6.taskB(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
+  print("\n\n");
+  stopwatch.stop();
+}
+
 void runnerDay7(items) {
   AnsiPen green = new AnsiPen()..green(bold: true);
   AnsiPen red = new AnsiPen()..red(bold: true);
@@ -160,4 +188,3 @@ void runnerDay7(items) {
   print("\n\n");
   stopwatch.stop();
 }
-
