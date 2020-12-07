@@ -9,6 +9,8 @@ import 'package:aoc/day3/tasks.dart' as day3;
 import 'package:aoc/day4/tasks.dart' as day4;
 import 'package:aoc/day5/tasks.dart' as day5;
 
+import 'package:aoc/day7/tasks.dart' as day7;
+
 void main(List<String> arguments) {
   String day = "";
   var parser = ArgParser();
@@ -38,6 +40,10 @@ void main(List<String> arguments) {
 
   if (day == "day5") {
     runnerDay5(items);
+  }
+
+  if (day == "day7") {
+    runnerDay7(items);
   }
 
   if (day == "dayall") {
@@ -139,3 +145,19 @@ void runnerDay5(items) {
   print("\n\n");
   stopwatch.stop();
 }
+
+void runnerDay7(items) {
+  AnsiPen green = new AnsiPen()..green(bold: true);
+  AnsiPen red = new AnsiPen()..red(bold: true);
+  final stopwatch = Stopwatch()..start();
+  print(red('Task A'));
+  print('Result:\t' + day7.taskA(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
+  stopwatch.reset();
+  print(red('\nTask B'));
+  print('Result:\t' + day7.taskB(items).toString());
+  print(green('Time:\t${stopwatch.elapsed}'));
+  print("\n\n");
+  stopwatch.stop();
+}
+
