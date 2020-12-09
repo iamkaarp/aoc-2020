@@ -15,13 +15,13 @@ int taskB(List items) {
 
 int countBags(Map bag, List bags) {
   int count = 0;
-  for (Map shallowChild in bag['children']) {
-    count += shallowChild['count'];
-    int index = bags.indexWhere((e) => e['color'] == shallowChild['color']);
+  for (Map child in bag['children']) {
+    count += child['count'];
+    int index = bags.indexWhere((e) => e['color'] == child['color']);
     if(index != -1) {
       Map childBag = bags[index];
       if (childBag['children'].length > 0) {
-        count += countBags(childBag, bags) * shallowChild['count'];
+        count += countBags(childBag, bags) * child['count'];
       }
     }
   }
